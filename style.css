@@ -1,0 +1,200 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #000000 40%, #f78a55 100%);
+  font-family: sans-serif;
+  color: #fff; /* White text for better contrast */
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  width: 300px;
+  height: max-content;
+  min-height: 300px;
+  background-color: #1a1a1a; /* Dark grey background for the main card */
+  border-radius: 30px;
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.8); /* Darker shadow */
+  padding: 30px;
+  box-sizing: border-box;
+  border: 2px solid #f78a55; /* Highlight border */
+}
+
+/* Input and Form Styles */
+main form {
+  border: 2px solid #f78a55;
+  display: flex;
+  align-items: center; /* Ensures vertical alignment */
+  border-radius: 30px;
+  background-color: #1a1a1a;
+  overflow: hidden; /* Prevents the button from spilling out */
+  position: relative;
+}
+
+main form input {
+  border: none;
+  color: #fff;
+  background-color: transparent;
+  outline: none;
+  padding: 14px 60px 14px 20px;
+  flex: 1; /* Ensures input takes full width */
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: #f78a55;
+    opacity: 0.8;
+    font-style: italic;
+  }
+
+  &:focus::placeholder {
+    color: #b56291;
+  }
+}
+
+/* Circular Search Button (Now inside the form) */
+main form button {
+  border: none;
+  background-color: #f78a55;
+  color: #fff;
+  border-radius: 50%; /* Circular button */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px; /* Creates spacing without breaking layout */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  right: -6px;
+  padding: 12px;
+  position: absolute;
+}
+
+/* Icon inside Button */
+main form button i {
+  font-size: 1.2rem;
+  color: #fff;
+  opacity: 0.9;
+}
+
+sup {
+    font-size: 22px;
+}
+
+/* Hover Effects */
+main form button:hover {
+  background-color: #b56291;
+  transform: scale(1.1); /* Smooth hover effect */
+}
+
+/* Result Section */
+main .result {
+  padding-top: 20px;
+  text-align: center;
+}
+
+main .result .name {
+  font-weight: bold;
+  font-size: large;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  /* Animated Heading */
+  animation: pulseEffect 1.5s infinite alternate;
+}
+
+@keyframes pulseEffect {
+  from {
+    transform: scale(1);
+    color: #f78a55;
+  }
+  to {
+    transform: scale(1.1);
+    color: #b56291;
+  }
+}
+
+main .temperature img {
+  width: 150px;
+  filter: drop-shadow(0 10px 50px #f78a55); /* Highlighted shadow */
+}
+
+main .temperature figcaption {
+  font-size: 3em;
+}
+
+/* Description */
+main .description {
+  padding: 10px 0 30px;
+}
+
+/* Cards with Visual Effect */
+main ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+main li {
+  background-color: #1a1a1a;
+  border: 2px solid #f78a55;
+  color: #fff;
+  border-radius: 10px;
+  padding: 20px 10px;
+  position: relative;
+  overflow: hidden;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: small;
+
+  /* Visual Effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+main li:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(247, 138, 85, 0.8);
+}
+
+main ul li i {
+  font-size: 2em;
+  margin: 20px 0;
+  display: block !important;
+}
+
+main li:nth-child(2) {
+  border-color: #b56291;
+}
+main li:nth-child(3) {
+  border-color: #48567b;
+}
+
+/* Error Animation */
+main.error {
+  animation: errorEffect 0.3s linear 1;
+}
+
+@keyframes errorEffect {
+  0% {
+    transform: translate(10px, 5px);
+  }
+  25% {
+    transform: translate(-5px, 0);
+  }
+  50% {
+    transform: translate(8px, 2px);
+  }
+  75% {
+    transform: translate(-2px, 5px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
