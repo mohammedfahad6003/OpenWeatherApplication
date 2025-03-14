@@ -30,10 +30,10 @@ main {
 main form {
   border: 2px solid #f78a55;
   display: flex;
-  align-items: center; /* Ensures vertical alignment */
+  align-items: center;
   border-radius: 30px;
   background-color: #1a1a1a;
-  overflow: hidden; /* Prevents the button from spilling out */
+  overflow: hidden;
   position: relative;
 }
 
@@ -43,7 +43,7 @@ main form input {
   background-color: transparent;
   outline: none;
   padding: 14px 60px 14px 20px;
-  flex: 1; /* Ensures input takes full width */
+  flex: 1;
   box-sizing: border-box;
 
   &::placeholder {
@@ -53,20 +53,20 @@ main form input {
   }
 
   &:focus::placeholder {
-    color: #b56291;
+    color: #fff;
   }
 }
 
-/* Circular Search Button (Now inside the form) */
+/* Circular Search Button */
 main form button {
   border: none;
   background-color: #f78a55;
   color: #fff;
-  border-radius: 50%; /* Circular button */
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 5px; /* Creates spacing without breaking layout */
+  margin-right: 5px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
   right: -6px;
@@ -74,7 +74,6 @@ main form button {
   position: absolute;
 }
 
-/* Icon inside Button */
 main form button i {
   font-size: 1.2rem;
   color: #fff;
@@ -82,13 +81,14 @@ main form button i {
 }
 
 sup {
-    font-size: 22px;
+  font-size: 22px;
 }
 
 /* Hover Effects */
 main form button:hover {
-  background-color: #b56291;
-  transform: scale(1.1); /* Smooth hover effect */
+  background-color: #fff;
+  color: #f78a55;
+  transform: scale(1.1);
 }
 
 /* Result Section */
@@ -116,13 +116,13 @@ main .result .name {
   }
   to {
     transform: scale(1.1);
-    color: #b56291;
+    color: #fff;
   }
 }
 
 main .temperature img {
   width: 150px;
-  filter: drop-shadow(0 10px 50px #f78a55); /* Highlighted shadow */
+  filter: drop-shadow(0 10px 50px #f78a55);
 }
 
 main .temperature figcaption {
