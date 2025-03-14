@@ -17,7 +17,7 @@ OpenWeather API
 Clone the repository
 
 git clone https://github.com/mohammedfahad6003/OpenWeatherApplication.git
-cd open-weather-app
+cd OpenWeatherApplication
 Add API Key
 
 Sign up at OpenWeather to get your API key.
