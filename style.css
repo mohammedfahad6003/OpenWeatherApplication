@@ -5,28 +5,30 @@ body {
   justify-content: center;
   align-items: center;
   background: linear-gradient(135deg, #000000 40%, #f78a55 100%);
-  font-family: sans-serif;
-  color: #fff; /* White text for better contrast */
+  font-family: "Poppins", sans-serif;
+  color: #fff;
 }
 
+/* Global Reset */
 * {
   padding: 0;
   margin: 0;
-}
-
-main {
-  width: 300px;
-  height: max-content;
-  min-height: 300px;
-  background-color: #1a1a1a; /* Dark grey background for the main card */
-  border-radius: 30px;
-  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.8); /* Darker shadow */
-  padding: 30px;
   box-sizing: border-box;
-  border: 2px solid #f78a55; /* Highlight border */
 }
 
-/* Input and Form Styles */
+/* Main Container with Responsive Width */
+main {
+  width: 90%;
+  max-width: 420px; /* Limits size on large screens */
+  min-height: 300px;
+  background-color: #1a1a1a;
+  border-radius: 30px;
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.8);
+  padding: 24px 30px;
+  border: 2px solid #f78a55;
+}
+
+/* Form Styling */
 main form {
   border: 2px solid #f78a55;
   display: flex;
@@ -35,8 +37,10 @@ main form {
   background-color: #1a1a1a;
   overflow: hidden;
   position: relative;
+  width: 100%;
 }
 
+/* Input Field with Responsive Sizing */
 main form input {
   border: none;
   color: #fff;
@@ -44,7 +48,6 @@ main form input {
   outline: none;
   padding: 14px 60px 14px 20px;
   flex: 1;
-  box-sizing: border-box;
 
   &::placeholder {
     color: #f78a55;
@@ -63,32 +66,27 @@ main form button {
   background-color: #f78a55;
   color: #fff;
   border-radius: 50%;
+  width: 45px;
+  height: 45px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 5px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
-  right: -6px;
-  padding: 12px;
+  right: 0px;
   position: absolute;
+}
+
+main form button:hover {
+  background-color: #fff;
+  color: #f78a55;
+  transform: scale(1.1);
 }
 
 main form button i {
   font-size: 1.2rem;
   color: #fff;
   opacity: 0.9;
-}
-
-sup {
-  font-size: 22px;
-}
-
-/* Hover Effects */
-main form button:hover {
-  background-color: #fff;
-  color: #f78a55;
-  transform: scale(1.1);
 }
 
 /* Result Section */
@@ -98,14 +96,13 @@ main .result {
 }
 
 main .result .name {
-  font-weight: bold;
-  font-size: large;
+  font-weight: 600;
+  font-size: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
 
-  /* Animated Heading */
   animation: pulseEffect 1.5s infinite alternate;
 }
 
@@ -120,6 +117,7 @@ main .result .name {
   }
 }
 
+/* Temperature */
 main .temperature img {
   width: 150px;
   filter: drop-shadow(0 10px 50px #f78a55);
@@ -132,27 +130,29 @@ main .temperature figcaption {
 /* Description */
 main .description {
   padding: 10px 0 30px;
+  font-weight: 400;
 }
 
-/* Cards with Visual Effect */
+/* Cards with Dynamic Grid Layout */
 main ul {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 12px;
 }
 
+/* Individual Cards */
 main li {
+  display: flex;
+  flex-direction: column;
   background-color: #1a1a1a;
   border: 2px solid #f78a55;
   color: #fff;
   border-radius: 10px;
-  padding: 20px 10px;
-  position: relative;
-  overflow: hidden;
-  font-weight: bold;
+  padding: 15px;
+  font-weight: 500;
   cursor: pointer;
-  font-size: small;
+  font-size: 0.9rem;
 
   /* Visual Effect */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -165,36 +165,58 @@ main li:hover {
 
 main ul li i {
   font-size: 2em;
-  margin: 20px 0;
-  display: block !important;
+  margin: 15px 0;
+  display: block;
 }
 
 main li:nth-child(2) {
-  border-color: #b56291;
+  border-color: #fff;
 }
 main li:nth-child(3) {
   border-color: #48567b;
 }
 
-/* Error Animation */
-main.error {
-  animation: errorEffect 0.3s linear 1;
+/* Motivation Quote */
+.motivationQuote {
+  font-weight: 500;
+  text-align: center;
+  margin-top: 20px;
 }
 
-@keyframes errorEffect {
-  0% {
-    transform: translate(10px, 5px);
+/* Footer Text */
+.madeWith {
+  font-size: 10px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 12px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 480px) {
+  main {
+    padding: 20px;
   }
-  25% {
-    transform: translate(-5px, 0);
+
+  main form input {
+    padding: 12px 40px 12px 16px;
   }
-  50% {
-    transform: translate(8px, 2px);
+
+  main form button {
+    width: 36px;
+    height: 36px;
+    right: 6px;
   }
-  75% {
-    transform: translate(-2px, 5px);
+
+  main .result .name {
+    font-size: 1.2rem;
   }
-  100% {
-    transform: translate(0, 0);
+
+  main ul {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  }
+
+  main li {
+    padding: 10px;
+    font-size: 0.8rem;
   }
 }
