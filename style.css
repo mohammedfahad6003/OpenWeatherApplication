@@ -220,3 +220,7 @@ main li:nth-child(3) {
     font-size: 0.8rem;
   }
 }
+
+sup {
+  font-size: 24px;
+}
